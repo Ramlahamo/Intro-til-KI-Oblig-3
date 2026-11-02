@@ -2,15 +2,18 @@ const DAYS=["Mandag","Tirsdag","Onsdag","Torsdag","Fredag","Lørdag","Søndag"];
 const CATS={UNI:{label:"Uni",class:"uni",emoji:"🎓"},JOBB:{label:"Jobb",class:"jobb",emoji:"💼"},PERSONAL:{label:"Personal",class:"personal",emoji:"🌿"}};
 const KEY="luma-calendar-events";
 let events=JSON.parse(localStorage.getItem(KEY)||"null")||[
- {id:1,title:"DATA3800",cat:"UNI",date:"2026-08-18",start:"10:30",end:"12:15",loc:"P32 N040",recurring:true},
- {id:2,title:"DAVE3625",cat:"UNI",date:"2026-08-18",start:"14:30",end:"16:15",loc:"PP35 U2005",recurring:true},
+ {id:1,title:"Databases",cat:"UNI",date:"2026-08-18",start:"10:30",end:"12:15",loc:"P32 N040",recurring:true},
+ {id:2,title:"Statistics",cat:"UNI",date:"2026-08-18",start:"14:30",end:"16:15",loc:"PP35 U2005",recurring:true},
  {id:3,title:"Trening",cat:"PERSONAL",date:"2026-08-19",start:"18:00",end:"19:00",loc:"",recurring:true},
- {id:4,title:"Vy",cat:"JOBB",date:"2026-08-21",start:"15:00",end:"23:00",loc:""},
- {id:5,title:"TA-vakt",cat:"JOBB",date:"2026-08-20",start:"12:00",end:"15:00",loc:"P35 PS439"}
+ {id:4,title:"Part-time shift",cat:"JOBB",date:"2026-08-21",start:"15:00",end:"23:00",loc:""},
+ {id:5,title:"Tutoring shift",cat:"JOBB",date:"2026-08-20",start:"12:00",end:"15:00",loc:"P35 PS439"}
 ];
 let currentView="MAIN", filter="ALL", weekStart=getMonday(new Date("2026-08-17T12:00:00")), calendarMode="week", monthStart=new Date(2026,7,1), lastWeekStart=new Date(weekStart);
 let pendingICS=[];
 
+let toastTimer;
+function toast(msg){const t=document.getElementById("toast");if(!t)return;t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2000)}
+function esc(v=""){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 function migrateEvents(){
   let changed=false;
@@ -117,7 +120,7 @@ function renderCalendar(){
    const top=((sh-7)*60+sm),height=Math.max(38,(eh*60+em)-(sh*60+sm));
    const el=document.createElement("div");el.className=`event ${CATS[e.cat]?.class||"uni"} ${currentView==="MAIN"?"main":""}`;
    el.style.top=top+"px";el.style.height=height+"px";
-   el.innerHTML=`<strong>${CATS[e.cat]?.emoji||""} ${e.title}</strong><small>${e.start}–${e.end}${e.loc?" · "+e.loc:""}</small>`;
+   el.innerHTML=`<strong>${CATS[e.cat]?.emoji||""} ${esc(e.title)}</strong><small>${esc(e.start)}–${esc(e.end)}${e.loc?" · "+esc(e.loc):""}</small>`;
    el.onclick=()=>editEvent(e.id);cols[day].appendChild(el);
  });
 }
@@ -207,7 +210,7 @@ $("#parseBtn").onclick=()=>{
   let title=first,start="10:00",end="11:00";
   if(tm){title=tm[1].trim();start=tm[2].padStart(5,"0");end=tm[3].padStart(5,"0");}
   const loc=lines[1]||"";
-  const cat=/\b(vy|jobb|arbeid|vakt|shift|ta|assistent)\b/i.test(title)?"JOBB":/\b(trening|gym|lege|avtale|sosial|privat)\b/i.test(title)?"PERSONAL":/^[A-Z]{2,}\d{4,}/.test(title)?"UNI":"JOBB";
+  const cat=/\b(vy|jobb|arbeid|vakt|shift|ta|assistent)\b/i.test(title)?"JOBB":/\b(trening|gym|lege|avtale|sosial|privat)\b/i.test(title)?"PERSONAL":/^[A-Z]{2,}\d{4,}/.test(title)?"UNI":(CATS[currentView]?currentView:"UNI");
   events.push({id:Date.now(),title,cat,date:iso(calendarMode==="month"?monthStart:weekStart),start,end,loc});
   save();$("#quickInput").value="";render();toast("Aktivitet lagt til");
 };
@@ -228,7 +231,7 @@ icsFile.onchange=async e=>{
   try{
     pendingICS=parseICS(await file.text());
     $("#importModal").classList.add("open");
-    $("#importStatus").innerHTML=`<div class="status"><b>${pendingICS.length}</b> aktiviteter funnet i <b>${file.name}</b>. Du kan velge kategori og hvilke aktiviteter som skal importeres.</div>`;
+    $("#importStatus").innerHTML=`<div class="status"><b>${pendingICS.length}</b> aktiviteter funnet i <b>${esc(file.name)}</b>. Du kan velge kategori og hvilke aktiviteter som skal importeres.</div>`;
     renderICSList();
   }catch(err){console.error(err);toast("Kunne ikke lese .ics-filen")}
   e.target.value="";
@@ -277,7 +280,7 @@ function renderICSList(){
  list.innerHTML=pendingICS.map((e,i)=>`
  <label class="import-row">
   <input type="checkbox" data-i="${i}" checked>
-  <div><strong>${e.title}</strong><small>${e.date} · ${e.start}–${e.end}${e.loc?" · "+e.loc:""}</small></div>
+  <div><strong>${esc(e.title)}</strong><small>${esc(e.date)} · ${esc(e.start)}–${esc(e.end)}${e.loc?" · "+esc(e.loc):""}</small></div>
   <select data-cat="${i}">
    <option value="UNI" ${e.cat==="UNI"?"selected":""}>🎓 Uni</option>
    <option value="JOBB" ${e.cat==="JOBB"?"selected":""}>💼 Jobb</option>

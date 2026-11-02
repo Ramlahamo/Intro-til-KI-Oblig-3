@@ -65,7 +65,7 @@
       <section class="bottom-grid">
         <div class="panel"><div class="panel-head"><div><span class="panel-kicker">OVERSIKT</span><h2 id="summaryTitle">Denne uka</h2></div><button class="ghost-btn">Se alt →</button></div><div class="overview-cards" id="overviewCards"></div></div>
         <div class="panel quick-panel"><div class="panel-head"><div><span class="panel-kicker">QUICK ADD</span><h2>Legg inn raskt</h2></div></div>
-          <div class="quick-input-wrap"><textarea id="quickInput" placeholder="DATA3800 F 10:30-12:15&#10;P32 N040"></textarea><button id="parseBtn">Tolke tekst</button></div>
+          <div class="quick-input-wrap"><textarea id="quickInput" placeholder="Databases F 10:30-12:15&#10;P32 N040"></textarea><button id="parseBtn">Tolke tekst</button></div>
           <div class="hint">Eksempel fra timeplanen din: «UNI / Jobb / Personal / Kalender».</div>
         </div>
       </section>
@@ -77,7 +77,7 @@
 <div class="modal-backdrop" id="modalBackdrop"><div class="modal">
   <div class="modal-head"><div><span class="panel-kicker">NY AKTIVITET</span><h2>Hva skal du gjøre?</h2></div><button class="close-btn" id="closeModal">×</button></div>
   <form id="eventForm">
-    <label>Tittel<input id="eventTitle" required placeholder="DATA3800, Trening, Vy…" /></label>
+    <label>Tittel<input id="eventTitle" required placeholder="Databases, Trening, Shift…" /></label>
     <div class="two"><label>Kategori<select id="eventCategory"><option value="UNI">🎓 Uni</option><option value="JOBB">💼 Jobb</option><option value="PERSONAL">🌿 Personal</option></select></label><label>Dato<input id="eventDate" type="date" required /></label></div>
     <div class="two"><label>Fra<input id="eventStart" type="time" value="10:00" required /></label><label>Til<input id="eventEnd" type="time" value="11:00" required /></label></div>
     <label>Sted / rom<input id="eventLocation" placeholder="P32 N040" /></label><label class="check-label"><input id="eventRecurring" type="checkbox" /> Gjentas hver uke</label><label>Notat<textarea id="eventNotes" placeholder="Valgfritt…"></textarea></label>
