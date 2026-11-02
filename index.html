@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luma — Life Calendar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">L</div><div><div class="brand-name">Luma</div><div class="brand-sub">your life, organized</div></div></div>
+    <button class="new-btn" id="newBtn">＋ Ny aktivitet</button>
+    <nav class="nav">
+      <div class="nav-label">VIEWS</div>
+      <button class="nav-item active" data-view="MAIN"><span class="dot all"></span><span class="nav-text">Main</span></button>
+      <button class="nav-item" data-view="UNI"><span class="dot uni"></span><span class="nav-text">Uni</span></button>
+      <button class="nav-item" data-view="JOBB"><span class="dot jobb"></span><span class="nav-text">Jobb</span></button>
+            <button class="nav-item" data-view="PERSONAL"><span class="dot personal"></span><span class="nav-text">Personal</span></button>
+    </nav>
+    <div class="sidebar-card">
+      <div class="mini-title">Denne uka</div>
+      <div class="stat-row"><span>Uni</span><strong id="uniHours">18t</strong></div>
+      <div class="stat-row"><span>Jobb</span><strong id="jobHours">8t</strong></div>
+          </div>
+    <div class="sidebar-bottom">
+      <button class="side-link" id="importBtn">↥ <span>Importer timeplan</span></button>
+      <label class="side-link file-select-link" for="icsFile">▧ <span>Velg .ics-fil</span></label>
+      <input id="icsFile" type="file" accept=".ics,text/calendar" class="visually-hidden-file" />
+      <button class="side-link sidebar-hide-link" id="sidebarHide">× <span>Skjul sidebar</span></button>
+      <button class="side-link">⚙ <span>Innstillinger</span></button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="view-select-wrap">
+        <button class="view-select" id="viewSelect">MAIN <span>⌄</span></button>
+        <div class="dropdown" id="dropdown">
+          <button data-view="MAIN"><span class="check">✓</span>Main <small>Alt</small></button>
+          <button data-view="UNI"><span class="check"></span>🎓 Uni</button>
+          <button data-view="JOBB"><span class="check"></span>💼 Jobb</button>
+                    <button data-view="PERSONAL"><span class="check"></span>🌿 Personal</button>
+        </div>
+      </div>
+      <div class="top-actions"><button class="icon-btn">⌕</button><button class="today-btn" id="todayBtn">I dag</button><button class="icon-btn">⚙</button><div class="avatar">R</div></div>
+    </header>
+
+    <section class="content">
+      <div class="heading-row">
+        <div><div class="eyebrow" id="eyebrow">ALL EVENTS</div><h1 id="pageTitle">Uke 35</h1><p id="pageSubtitle"></p></div>
+        <div class="week-nav"><button class="round-btn" id="prevWeek" aria-label="Forrige">‹</button><button class="round-btn" id="nextWeek" aria-label="Neste">›</button><button class="view-mode active" id="weekViewBtn">Uke</button><button class="view-mode" id="monthViewBtn">Måned</button></div>
+      </div>
+      <div class="filter-row" id="filters"></div>
+      <section class="calendar-card"><div class="calendar-scroll"><div class="calendar-grid" id="calendarGrid">
+        <div class="time-head"></div>
+        <div class="day-head" data-day="0"></div><div class="day-head" data-day="1"></div><div class="day-head" data-day="2"></div><div class="day-head" data-day="3"></div><div class="day-head" data-day="4"></div><div class="day-head" data-day="5"></div><div class="day-head" data-day="6"></div>
+        <div class="time-col" id="timeCol"></div>
+        <div class="day-col" data-col="0"></div><div class="day-col" data-col="1"></div><div class="day-col" data-col="2"></div><div class="day-col" data-col="3"></div><div class="day-col" data-col="4"></div><div class="day-col" data-col="5"></div><div class="day-col" data-col="6"></div>
+      </div></div></section>
+
+      <section class="bottom-grid">
+        <div class="panel"><div class="panel-head"><div><span class="panel-kicker">OVERSIKT</span><h2 id="summaryTitle">Denne uka</h2></div><button class="ghost-btn">Se alt →</button></div><div class="overview-cards" id="overviewCards"></div></div>
+        <div class="panel quick-panel"><div class="panel-head"><div><span class="panel-kicker">QUICK ADD</span><h2>Legg inn raskt</h2></div></div>
+          <div class="quick-input-wrap"><textarea id="quickInput" placeholder="DATA3800 F 10:30-12:15&#10;P32 N040"></textarea><button id="parseBtn">Tolke tekst</button></div>
+          <div class="hint">Eksempel fra timeplanen din: «UNI / Jobb / Personal / Kalender».</div>
+        </div>
+      </section>
+    </section>
+  </main>
+</div>
+<button class="sidebar-restore" id="sidebarRestore" aria-label="Vis sidebar">☰</button>
+
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal">
+  <div class="modal-head"><div><span class="panel-kicker">NY AKTIVITET</span><h2>Hva skal du gjøre?</h2></div><button class="close-btn" id="closeModal">×</button></div>
+  <form id="eventForm">
+    <label>Tittel<input id="eventTitle" required placeholder="DATA3800, Trening, Vy…" /></label>
+    <div class="two"><label>Kategori<select id="eventCategory"><option value="UNI">🎓 Uni</option><option value="JOBB">💼 Jobb</option><option value="PERSONAL">🌿 Personal</option></select></label><label>Dato<input id="eventDate" type="date" required /></label></div>
+    <div class="two"><label>Fra<input id="eventStart" type="time" value="10:00" required /></label><label>Til<input id="eventEnd" type="time" value="11:00" required /></label></div>
+    <label>Sted / rom<input id="eventLocation" placeholder="P32 N040" /></label><label class="check-label"><input id="eventRecurring" type="checkbox" /> Gjentas hver uke</label><label>Notat<textarea id="eventNotes" placeholder="Valgfritt…"></textarea></label>
+    <button class="submit-btn">Opprett aktivitet</button>
+  </form>
+</div></div>
+
+<div class="modal-backdrop" id="importModal"><div class="modal import-modal wide-import">
+  <div class="modal-head"><div><span class="panel-kicker">IMPORT</span><h2>Importer timeplan</h2></div><button class="close-btn" id="closeImport">×</button></div>
+  <p class="modal-copy">Velg en <b>.ics</b>-fil fra OsloMet, Apple Calendar eller Google Calendar. Aktivitetene vises først som en forhåndsvisning, og du kan endre kategori før import.</p>
+  <button class="import-trigger" id="chooseICS"><span class="import-icon">↥</span><span>Importer timeplan</span></button><div class="import-file-note">Velg en .ics-fil fra datamaskinen. Filen åpnes i samme importflyt som resten av kalenderen.</div>
+  <div id="importStatus"></div>
+  <div id="importList" class="import-list"></div>
+  <div class="import-actions"><button class="cancel-import" id="cancelImport">Avbryt</button><button class="submit-btn" id="confirmImport">Importer valgte</button></div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

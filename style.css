@@ -1,0 +1,71 @@
+*{box-sizing:border-box}body{margin:0;background:#f6f1e9;color:#292725;font-family:"DM Sans",sans-serif}.app{min-height:100vh;display:flex}.sidebar{width:238px;background:#eee7dc;border-right:1px solid #ddd3c5;padding:26px 18px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}.brand{display:flex;gap:11px;align-items:center;padding:0 8px 28px}.brand-mark{width:34px;height:34px;border-radius:11px;background:#282522;color:#fff;display:grid;place-items:center;font-family:"Playfair Display";font-size:20px}.brand-name{font-weight:700;font-size:16px}.brand-sub{font-size:10px;color:#8a8176;letter-spacing:.5px}.new-btn{border:0;background:#282522;color:#fff;padding:12px 14px;border-radius:12px;font-weight:600;cursor:pointer;box-shadow:0 5px 18px #302b251a}.nav{margin-top:28px}.nav-label,.panel-kicker,.eyebrow{font-size:10px;letter-spacing:1.5px;color:#9a9084;font-weight:700}.nav-item{width:100%;border:0;background:transparent;text-align:left;padding:10px 12px;border-radius:9px;margin:2px 0;display:flex;align-items:center;gap:11px;color:#655e56;cursor:pointer}.nav-item.active{background:#e2d9ca;color:#27231f;font-weight:700}.dot{width:8px;height:8px;border-radius:50%}.all{background:#6c6257}.uni{background:#789b88}.jobb{background:#c87d68}.ta{background:#9679a6}.personal{background:#88a37a}.sidebar-card{background:#e6ddcf;border-radius:15px;padding:15px;margin-top:auto}.mini-title{font-size:11px;color:#8d8377;margin-bottom:10px}.stat-row{display:flex;justify-content:space-between;padding:7px 0;font-size:12px;color:#625b53}.stat-row strong{color:#302b26}.sidebar-bottom{padding-top:18px}.side-link{border:0;background:transparent;color:#777067;display:flex;gap:9px;padding:8px;width:100%;cursor:pointer;font-size:12px}.main{flex:1;min-width:0}.topbar{height:76px;border-bottom:1px solid #e4dcd0;background:#f8f4eddd;backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 36px;position:sticky;top:0;z-index:5}.view-select{font:inherit;font-size:14px;font-weight:700;background:none;border:0;cursor:pointer}.view-select span{margin-left:8px;color:#9a9084}.view-select-wrap{position:relative}.dropdown{display:none;position:absolute;top:35px;left:-10px;background:#fffaf3;border:1px solid #e2d8c9;border-radius:13px;box-shadow:0 16px 40px #392d2018;padding:6px;width:190px}.dropdown.open{display:block}.dropdown button{width:100%;border:0;background:transparent;text-align:left;padding:9px;border-radius:8px;cursor:pointer;color:#514a43}.dropdown button:hover{background:#eee7dc}.dropdown small{float:right;color:#aaa}.top-actions{display:flex;gap:10px;align-items:center}.icon-btn,.today-btn,.round-btn,.view-mode{border:1px solid #ded5c9;background:#fbf7f0;border-radius:9px;height:34px;padding:0 11px;cursor:pointer;color:#645d55}.icon-btn{width:34px;padding:0}.today-btn{font-weight:600}.avatar{width:32px;height:32px;border-radius:50%;background:#d7cbb9;display:grid;place-items:center;font-size:12px;font-weight:700}.content{padding:34px 38px 50px;max-width:1500px;margin:auto}.heading-row{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}h1{font-family:"Playfair Display";font-size:40px;font-weight:500;margin:4px 0}.heading-row p{margin:0;color:#958a7d;font-size:13px}.week-nav{display:flex;gap:7px}.round-btn{width:35px;padding:0;border-radius:50%}.view-mode{padding:0 13px}.view-mode.active{background:#302c28;color:#fff;border-color:#302c28}.filter-row{display:flex;gap:7px;margin-bottom:10px;min-height:30px}.filter{border:1px solid #ded5c9;background:#fbf7f0;border-radius:20px;padding:6px 11px;font-size:11px;cursor:pointer}.filter.active{background:#e2d9ca}.calendar-card{background:#fbf8f2;border:1px solid #e1d8cb;border-radius:18px;overflow:hidden;box-shadow:0 8px 30px #4737280b}.calendar-scroll{overflow:auto}.calendar-grid{display:grid;grid-template-columns:64px repeat(7,minmax(120px,1fr));grid-template-rows:54px 720px;min-width:930px}.time-head{border-bottom:1px solid #e6ddd2}.day-head{border-left:1px solid #eee6dc;border-bottom:1px solid #e6ddd2;padding:12px 12px;font-size:11px;color:#8c8275;text-transform:uppercase}.day-head.today{color:#2d2925;font-weight:700}.day-head .num{display:block;font-size:18px;color:#39342f;margin-top:3px}.time-col{position:relative;border-right:1px solid #e9e0d6}.time-label{height:60px;text-align:right;padding:3px 9px 0 0;font-size:10px;color:#aaa095}.day-col{position:relative;border-left:1px solid #eee6dc;background:repeating-linear-gradient(to bottom,transparent 0,transparent 59px,#eee7de 60px)}.event{position:absolute;left:5px;right:5px;border-radius:9px;padding:7px 8px;overflow:hidden;font-size:11px;cursor:pointer;border-left:3px solid}.event strong{display:block;font-size:12px;margin-bottom:3px}.event small{color:#70675d}.event.uni{background:#dfece5;border-color:#789b88}.event.jobb{background:#f2ded8;border-color:#c87d68}.event.ta{background:#e8dfee;border-color:#9679a6}.event.personal{background:#e2ebdd;border-color:#88a37a}.event.main{box-shadow:0 4px 12px #40352b14}.bottom-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:18px;margin-top:18px}.panel{background:#fbf8f2;border:1px solid #e1d8cb;border-radius:17px;padding:20px}.panel-head{display:flex;justify-content:space-between;align-items:start}.panel h2{font-family:"Playfair Display";font-weight:500;font-size:22px;margin:4px 0 16px}.ghost-btn{border:0;background:none;color:#8c8175;font-size:11px}.overview-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.overview-card{padding:13px;border-radius:12px;background:#f1eae0}.overview-card .label{font-size:10px;color:#8b8175}.overview-card .value{font-size:20px;margin-top:5px}.quick-input-wrap{display:flex;gap:8px}.quick-input-wrap textarea{resize:none;height:78px;flex:1;border:1px solid #ddd3c6;background:#f5eee5;border-radius:11px;padding:10px;font:12px "DM Sans"}.quick-input-wrap button{align-self:end;border:0;background:#302c28;color:#fff;border-radius:9px;padding:9px 11px;cursor:pointer}.hint{font-size:10px;color:#9b9083;margin-top:8px}.modal-backdrop{display:none;position:fixed;inset:0;background:#2b241d45;backdrop-filter:blur(4px);z-index:20;align-items:center;justify-content:center}.modal-backdrop.open{display:flex}.modal{width:min(500px,calc(100vw - 30px));background:#fbf8f2;border:1px solid #e2d8ca;border-radius:18px;padding:22px;box-shadow:0 30px 80px #30261d30}.modal-head{display:flex;justify-content:space-between}.modal h2{font-family:"Playfair Display";font-weight:500;margin:4px 0 18px}.close-btn{border:0;background:#eee7dd;border-radius:50%;width:30px;height:30px;font-size:20px;cursor:pointer}form label{display:block;font-size:11px;color:#756c61;margin:10px 0}input,select,form textarea{display:block;width:100%;margin-top:5px;border:1px solid #ded5c9;background:#fffaf3;border-radius:9px;padding:10px;font:13px "DM Sans";outline:none}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.submit-btn{width:100%;border:0;background:#302c28;color:#fff;border-radius:10px;padding:12px;margin-top:12px;font-weight:700;cursor:pointer}.modal-copy{font-size:12px;color:#81776b;line-height:1.5}.big-textarea{width:100%;height:210px;resize:vertical;border:1px solid #ded5c9;background:#fffaf3;border-radius:11px;padding:12px;font:13px "DM Sans"}.import-preview{font-size:11px;color:#756b60;margin-top:8px;min-height:18px}.toast{position:fixed;right:24px;bottom:24px;background:#302c28;color:#fff;padding:12px 15px;border-radius:10px;font-size:12px;opacity:0;transform:translateY(10px);transition:.2s;z-index:30}.toast.show{opacity:1;transform:none}@media(max-width:900px){.sidebar{width:190px}.content{padding:24px 18px}.topbar{padding:0 18px}.bottom-grid{grid-template-columns:1fr}}@media(max-width:680px){.sidebar{display:none}.heading-row{align-items:start;gap:12px;flex-direction:column}.overview-cards{grid-template-columns:1fr 1fr}.top-actions .icon-btn:first-child{display:none}}
+.ics-help{font-size:10px;color:#9b9083;margin-top:9px;line-height:1.45}.import-source{display:inline-block;margin-top:5px;padding:4px 7px;border-radius:7px;background:#eee7dc;color:#756b60;font-size:10px}
+
+/* ICS import preview — matches the existing Luma visual design */
+.wide-import{width:min(760px,calc(100vw - 30px))}.status{padding:9px 11px;background:#eee7dc;border-radius:9px;font-size:11px;margin:10px 0}.import-list{max-height:410px;overflow:auto;border:1px solid #e2d8cc;border-radius:11px;background:#f7f1e8}.import-row{display:grid!important;grid-template-columns:25px 1fr 130px;gap:10px;padding:11px;border-bottom:1px solid #e6ddd3;align-items:center}.import-row:last-child{border:0}.import-row strong{display:block;font-size:12px}.import-row small{color:#8b8176;display:block;margin-top:3px}.import-row select{margin:0}.import-actions{display:flex;gap:8px;margin-top:10px}.import-actions .submit-btn{margin-top:0}.cancel-import{flex:1;border:0;background:#e9e1d6;color:#4d463e;border-radius:10px;padding:12px;cursor:pointer;font-weight:700}.import-actions .submit-btn{flex:2}.empty{padding:25px;text-align:center;color:#8e857a;font-size:12px}
+
+/* Sidebar controls */
+.sidebar-hide-link{margin-top:8px;border-top:1px solid #ded5c8;padding-top:12px}
+.sidebar-restore{display:none;position:fixed;left:18px;top:18px;z-index:15;width:40px;height:40px;border:1px solid #ded5c9;background:#fbf7f0;color:#645d55;border-radius:12px;cursor:pointer;box-shadow:0 8px 24px #392d2015}
+.sidebar-hidden .sidebar{display:none}
+.sidebar-hidden .sidebar-restore{display:grid;place-items:center}
+.sidebar-hidden .main{width:100%}
+@media(max-width:680px){.sidebar-restore{display:none}.sidebar-hidden .sidebar-restore{display:grid}.sidebar-tools{display:none}}
+.import-trigger{width:100%;border:0;background:#282522;color:#fff;display:flex;align-items:center;gap:9px;padding:12px 14px;border-radius:12px;font-weight:600;cursor:pointer;box-shadow:0 5px 18px #302b251a;margin:10px 0 4px;text-align:left}
+.import-trigger:hover{background:#35302b}
+#importList:empty{display:none}
+.import-actions{display:flex;gap:8px;margin-top:10px}
+#confirmImport:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:680px){.sidebar-restore{display:none}.sidebar-hidden .sidebar-restore{display:grid}.sidebar-tools{display:none}}
+.check-label{display:flex!important;align-items:center;gap:8px;color:#756c61!important;margin:12px 0!important}
+.check-label input{width:16px!important;height:16px!important;margin:0!important;accent-color:#302c28}
+
+/* Final polish: month view stays inside the same Luma calendar layout */
+.calendar-grid.month-grid{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));grid-template-rows:38px repeat(6,minmax(112px,1fr));min-width:930px;background:#fbf8f2}
+.month-weekday{padding:10px 12px;border-bottom:1px solid #e6ddd2;color:#8c8275;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.month-cell{min-height:112px;padding:8px;border-left:1px solid #eee6dc;border-bottom:1px solid #eee6dc;background:#fbf8f2;cursor:pointer;vertical-align:top}
+.month-cell:nth-child(7n+1){border-left:0}
+.month-cell.outside{background:#f7f1e8;color:#aaa095}
+.month-cell.today{box-shadow:inset 0 2px 0 #302c28}
+.month-date{font-size:13px;font-weight:700;color:#4c463f;margin-bottom:6px}
+.month-cell.outside .month-date{color:#aaa095}
+.month-event{display:block;margin:3px 0;padding:4px 6px;border-radius:6px;font-size:10px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:3px solid}
+.month-event.uni{background:#dfece5;border-color:#789b88}
+.month-event.jobb{background:#f2ded8;border-color:#c87d68}
+.month-event.personal{background:#e2ebdd;border-color:#88a37a}
+.month-more{font-size:10px;color:#8b8176;padding:3px 4px}
+
+/* File import uses the exact same Luma action treatment as the sidebar */
+.import-trigger{appearance:none;font:600 12px "DM Sans",sans-serif;width:100%;border:0;background:#282522;color:#fff;display:flex;align-items:center;justify-content:flex-start;gap:9px;padding:12px 14px;border-radius:12px;cursor:pointer;box-shadow:0 5px 18px #302b251a;margin:12px 0 4px;text-align:left}
+.import-trigger:hover{background:#35302b}
+.import-trigger:focus-visible{outline:2px solid #8c8175;outline-offset:2px}
+.import-trigger .import-icon{width:20px;height:20px;border-radius:7px;background:#403a34;display:grid;place-items:center;font-size:12px}
+.import-file-note{font-size:10px;color:#9b9083;margin:7px 0 10px}
+#importList:empty{display:none}
+
+/* File picker follows the previous sidebar design, using the same side-link treatment. */
+.file-select-link{
+  align-items:center;
+  text-decoration:none;
+  color:#777067;
+}
+.file-select-link:hover{
+  color:#302c28;
+  background:#e7dfd4;
+  border-radius:9px;
+}
+.file-select-link:focus-visible{
+  outline:2px solid #8c8175;
+  outline-offset:2px;
+}
+.visually-hidden-file{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important;
+}
